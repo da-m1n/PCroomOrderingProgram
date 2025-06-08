@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class FoodManager {
+    private List<String> listMenu = new ArrayList<String>();
+    private List<Integer> listPrice = new ArrayList<Integer>();
+    private int sum;
+    private int total;
+
+    public FoodManager() {
+        add();
+    }
+
+    public void printMenu() {
+        System.out.println("--메뉴--");
+        System.out.println("1. 햄버거: 7000 ");
+        System.out.println("2. 라면: 3000");
+        System.out.println("3. 음료수: 2000");
+        System.out.println("4. 과자: 1500 ");
+        System.out.println("5. 사탕: 500");
+        System.out.print("메뉴선택 > ");
+    }
+
+    public void add() {
+        listMenu.add("햄버거");
+        listMenu.add("라면");
+        listMenu.add("음료수");
+        listMenu.add("과자");
+        listMenu.add("사탕");
+
+        listPrice.add(7000);
+        listPrice.add(3000);
+        listPrice.add(2000);
+        listPrice.add(1500);
+        listPrice.add(500);
+    }
+
+    public void sale(int menu, int count) {
+        sum = listPrice.get(menu-1) * count;
+        total += sum;
+        System.out.println("==============");
+        System.out.println("["+listMenu.get(menu-1)+"]  "+count+ "개");
+        System.out.println("금액: " + sum +"원");
+        System.out.println("====주문 완료====\n");
+    }
+
+    public void printResult() {
+        System.out.println("총 주문 금액: " + total + "원");
+    }
+    public List<String> getListMenu() {
+        return listMenu;
+    }
+
+    public List<Integer> getListPrice() {
+        return listPrice;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    //테스트용 main 메서드
+    //public static void main(String[] args) {
+        //FoodManager app = new FoodManager();
+        //app.printMenu();
+        //app.sale(1, 2);
+        //app.sale(3, 1);
+        //app.printResult();
+    //}
+}
